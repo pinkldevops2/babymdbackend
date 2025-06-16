@@ -424,8 +424,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
+        maxLength: 2000;
+        minLength: 150;
       }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
